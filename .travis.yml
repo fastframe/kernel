@@ -7,7 +7,7 @@ php:
 
 addons:
   code_climate:
-    repo_token:
+    repo_token: 9ab146469fb82f7be4356b8e54b5c85f6e9906a26a2b004c80ac10f512e3376c
 
 before_script:
   - composer self-update
