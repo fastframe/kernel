@@ -1,0 +1,35 @@
+{
+  "name": "fastframe/kernel",
+  "description": "FastFrame Kernel",
+  "minimum-stability": "dev",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "David Lundgren",
+      "email": "dlundgren@syberisle.net"
+    }
+  ],
+  "autoload" : {
+    "psr-4" : {
+      "FastFrame\\Kernel\\" : "src"
+    }
+  },
+  "autoload-dev" : {
+    "psr-4" : {
+      "FastFrame\\Kernel\\" : "tests/src"
+    }
+  },
+  "require": {
+    "fastframe/utility": "dev-master",
+    "josegonzalez/dotenv": "^2.0",
+    "container-interop/container-interop": "~1.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^4.8",
+    "codeclimate/php-test-reporter": "^0.4.0",
+    "mikey179/vfsStream": "^1.6"
+  },
+  "scripts": {
+    "test": "phpunit"
+  }
+}
