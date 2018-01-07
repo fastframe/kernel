@@ -10,8 +10,8 @@ namespace FastFrame\Kernel;
 use Composer\Autoload\ClassLoader;
 use FastFrame\Utility\ArrayHelper;
 use FastFrame\Utility\NestedArrayHelper;
-use Guzzle\Common\Exception\RuntimeException;
 use josegonzalez\Dotenv\Loader;
+use RuntimeException;
 
 /**
  * The role of this class is to be able to load the Kernels environment.
