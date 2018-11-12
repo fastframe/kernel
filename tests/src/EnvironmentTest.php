@@ -4,9 +4,10 @@ namespace FastFrame\Kernel;
 
 use Composer\Autoload\ClassLoader;
 use org\bovigo\vfs\vfsStream;
+use PHPUnit\Framework\TestCase;
 
 class EnvironmentTest
-	extends \PHPUnit_Framework_TestCase
+	extends TestCase
 {
 	public function setUp()
 	{
@@ -73,7 +74,7 @@ class EnvironmentTest
 
 	public function testLoadThrowsException()
 	{
-		$this->setExpectedException(\RuntimeException::class);
+		$this->expectException(\RuntimeException::class);
 		$env = new Environment(__DIR__);
 		$env->load('poi');
 

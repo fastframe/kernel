@@ -6,9 +6,10 @@ use FastFrame\_Config\ProviderResolveTest;
 use FastFrame\Kernel\Mocks\TestSubProviders;
 use Interop\Container\ContainerInterface;
 use org\bovigo\vfs\vfsStream;
+use PHPUnit\Framework\TestCase;
 
 class HasSubProvidersTest
-	extends \PHPUnit_Framework_TestCase
+	extends TestCase
 {
 	public function setUp()
 	{
@@ -32,12 +33,26 @@ class HasSubProvidersTest
 	public function testRunProviderDefine()
 	{
 		$p = new TestSubProviders($this->buildEnvironment());
-		$p->runProviderDefine($this->getMock(ContainerInterface::class));
+
+		$a = new ProviderResolveTest();
+		$p->add($a);
+
+		$p->runProviderDefine($this->getMockBuilder(ContainerInterface::class)->getMock());
+
+		self::assertTrue($a->define);
+		self::assertFalse($a->modify);
 	}
 
 	public function testRunProviderModify()
 	{
 		$p = new TestSubProviders($this->buildEnvironment());
-		$p->runProviderModify($this->getMock(ContainerInterface::class));
+
+		$a = new ProviderResolveTest();
+		$p->add($a);
+
+
+		$p->runProviderModify($this->getMockBuilder(ContainerInterface::class)->getMock());
+		self::assertFalse($a->define);
+		self::assertTrue($a->modify);
 	}
 }

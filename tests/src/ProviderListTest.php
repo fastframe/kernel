@@ -5,9 +5,10 @@ namespace FastFrame\Kernel;
 use FastFrame\_Config\ProviderResolveTest;
 use Interop\Container\ContainerInterface;
 use org\bovigo\vfs\vfsStream;
+use PHPUnit\Framework\TestCase;
 
 class ProviderListTest
-	extends \PHPUnit_Framework_TestCase
+	extends TestCase
 {
 	private $autoloader;
 	public function setUp()
@@ -55,7 +56,7 @@ class ProviderListTest
 
 	public function testAppendThrowsExceptionOnInvalidClass()
 	{
-		$this->setExpectedException(\InvalidArgumentException::class);
+		$this->expectException(\InvalidArgumentException::class);
 		$this->buildProviderList()->append("woot");
 	}
 
@@ -69,7 +70,7 @@ class ProviderListTest
 
 	public function testAppendAcceptsObject()
 	{
-		$s = $this->getMock(Provider::class);
+		$s = $this->getMockBuilder(Provider::class)->getMock();
 		$pl = $this->buildProviderList();
 
 		self::assertCount(0, $pl);
@@ -80,7 +81,7 @@ class ProviderListTest
 
 	public function testPrependThrowsExceptionOnInvalidClass()
 	{
-		$this->setExpectedException(\InvalidArgumentException::class);
+		$this->expectException(\InvalidArgumentException::class);
 		$this->buildProviderList()->prepend("woot");
 	}
 
@@ -94,7 +95,7 @@ class ProviderListTest
 
 	public function testPrependAcceptsObject()
 	{
-		$s = $this->getMock(Provider::class);
+		$s = $this->getMockBuilder(Provider::class)->getMock();
 		$pl = $this->buildProviderList();
 
 		self::assertCount(0, $pl);
@@ -106,10 +107,14 @@ class ProviderListTest
 	public function testPrependAppendTogether()
 	{
 		$pl = $this->buildProviderList();
-		$a1 = $this->getMock(Provider::class);
-		$a2 = $this->getMock(Provider::class);
-		$p1 = $this->getMock(Provider::class);
-		$p2 = $this->getMock(Provider::class);
+		$a1 = $this->getMockBuilder(Provider::class)->getMock();
+		$a2 = $this->getMockBuilder(Provider::class)->getMock();
+		$p1 = $this->getMockBuilder(Provider::class)->getMock();
+		$p2 = $this->getMockBuilder(Provider::class)->getMock();
+//		$a1 = $this->getMock(Provider::class);
+//		$a2 = $this->getMock(Provider::class);
+//		$p1 = $this->getMock(Provider::class);
+//		$p2 = $this->getMock(Provider::class);
 
 		$pl->append($a1);
 		$pl->append($a2);
@@ -128,8 +133,7 @@ class ProviderListTest
 
 		$pl->append($a);
 		$pl->append($p);
-
-		$pl->define($this->getMock(ContainerInterface::class));
+		$pl->define($this->getMockBuilder(ContainerInterface::class)->getMock());
 
 		self::assertTrue($a->define);
 		self::assertFalse($a->modify);
@@ -147,7 +151,7 @@ class ProviderListTest
 		$pl->append($a);
 		$pl->append($p);
 
-		$pl->modify($this->getMock(ContainerInterface::class));
+		$pl->modify($this->getMockBuilder(ContainerInterface::class)->getMock());
 
 		self::assertTrue($a->modify);
 		self::assertFalse($a->define);

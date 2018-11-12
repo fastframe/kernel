@@ -11,4 +11,9 @@ class TestSubProviders
 	{
 		$this->providers = $this->initProviderList($env);
 	}
+
+	public function add($provider)
+	{
+		$this->providers->append($provider);
+	}
 }
