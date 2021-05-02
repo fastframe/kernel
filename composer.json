@@ -23,6 +23,61 @@
   "config": {
     "sort-packages": true
   },
+  "repositories": [
+    {
+      "type": "package",
+      "package": {
+        "name": "sebastian/phpcpd",
+        "version": "4.1.0",
+        "require": {
+          "php": ">=7.1",
+          "sebastian/finder-facade": "^1.1",
+          "sebastian/version": "^1.0|^2.0",
+          "symfony/console": "^2.7|^3.0|^4.0",
+          "phpunit/php-timer": "^2.0"
+        },
+        "autoload": {
+          "classmap": [
+            "src/"
+          ]
+        },
+        "bin": [
+          "phpcpd"
+        ],
+        "source": {
+          "url": "https://github.com/sebastianbergmann/phpcpd.git",
+          "type": "git",
+          "reference": "tags/4.1.0"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "phploc/phploc",
+        "version": "4.0.1",
+        "require": {
+          "php": ">=7.1.0",
+          "sebastian/finder-facade": "^1.1",
+          "sebastian/version": "^2.0",
+          "symfony/console": "^2.7|^3.0|^4.0"
+        },
+        "autoload": {
+          "classmap": [
+            "src/"
+          ]
+        },
+        "bin": [
+          "phploc"
+        ],
+        "source": {
+          "url": "https://github.com/sebastianbergmann/phploc.git",
+          "type": "git",
+          "reference": "tags/4.0.1"
+        }
+      }
+    }
+  ],
   "require": {
     "container-interop/container-interop": "~1.0",
     "fastframe/utility": "dev-master",
@@ -30,7 +85,7 @@
   },
   "require-dev": {
     "codeclimate/php-test-reporter": "^0.4.0",
-    "mikey179/vfsStream": "^1.6",
+    "mikey179/vfsstream": "^1.6",
     "phploc/phploc": "^4.0",
     "phpunit/phpunit": "^8.5",
     "roave/security-advisories": "dev-master",
@@ -49,14 +104,8 @@
       "@php vendor/bin/phpcs --config-set installed_paths vendor/syberisle/coding-standards",
       "@php vendor/bin/phpcbf --standard=SyberIsle src/"
     ],
-    "phpdoc" : [
-      "docker run --rm -v $(pwd):/data phpdoc/phpdoc"
-    ],
-    "phploc": [
-      "@php vendor/bin/phploc src tests > docs/phploc.txt"
-    ],
-    "phpcpd": [
-      "@php vendor/bin/phpcpd src tests"
-    ]
+    "phpdoc" : "docker run --rm -v $(pwd):/data phpdoc/phpdoc",
+    "phploc": "@php vendor/bin/phploc src tests > docs/phploc.txt",
+    "phpcpd": "@php vendor/bin/phpcpd src tests"
   }
 }
