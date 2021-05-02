@@ -11,7 +11,7 @@ class ProviderListTest
 	extends TestCase
 {
 	private $autoloader;
-	public function setUp()
+	public function setUp(): void
 	{
 		$this->vfs = vfsStream::setup(
 			'fs', null,
@@ -41,7 +41,7 @@ class ProviderListTest
 		spl_autoload_register($this->autoloader);
 	}
 
-	public function tearDown()
+	public function tearDown(): void
 	{
 		spl_autoload_unregister($this->autoloader);
 	}
