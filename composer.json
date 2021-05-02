@@ -50,7 +50,32 @@
           "reference": "tags/4.1.0"
         }
       }
-    }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "phploc/phploc",
+        "version": "4.0.1",
+        "require": {
+          "php": ">=7.1.0",
+          "sebastian/finder-facade": "^1.1",
+          "sebastian/version": "^2.0",
+          "symfony/console": "^2.7|^3.0|^4.0"
+        },
+        "autoload": {
+          "classmap": [
+            "src/"
+          ]
+        },
+        "bin": [
+          "phploc"
+        ],
+        "source": {
+          "url": "https://github.com/sebastianbergmann/phploc.git",
+          "type": "git",
+          "reference": "tags/4.0.1"
+        }
+      },
   ],
   "require": {
     "container-interop/container-interop": "~1.0",
