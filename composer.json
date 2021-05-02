@@ -30,7 +30,7 @@
   },
   "require-dev": {
     "codeclimate/php-test-reporter": "^0.4.0",
-    "mikey179/vfsStream": "^1.6",
+    "mikey179/vfsstream": "^1.6",
     "phploc/phploc": "^4.0",
     "phpunit/phpunit": "^7.4",
     "roave/security-advisories": "dev-master",
