@@ -75,7 +75,8 @@
           "type": "git",
           "reference": "tags/4.0.1"
         }
-      },
+      }
+    }
   ],
   "require": {
     "container-interop/container-interop": "~1.0",
