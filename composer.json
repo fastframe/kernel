@@ -81,7 +81,7 @@
   "require": {
     "container-interop/container-interop": "~1.0",
     "fastframe/utility": "dev-master",
-    "josegonzalez/dotenv": "~3.0"
+    "josegonzalez/dotenv": "~4.0"
   },
   "require-dev": {
     "mikey179/vfsstream": "^1.6",
